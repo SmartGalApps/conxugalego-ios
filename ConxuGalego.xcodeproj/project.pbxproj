@@ -37,6 +37,10 @@
 		BA85D93414B6F94D00509416 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = BA85D92814B6F94D00509416 /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BA85D93514B6F94D00509416 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = BA85D92A14B6F94D00509416 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BA85D93614B6F94D00509416 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = BA85D92D14B6F94D00509416 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BA85D93914B7018800509416 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = BA85D93814B7018800509416 /* logo.png */; };
+		BA85D93B14B7018E00509416 /* logo_retina.png in Resources */ = {isa = PBXBuildFile; fileRef = BA85D93A14B7018E00509416 /* logo_retina.png */; };
+		BAF24C7514B7050100B4F0A3 /* logo_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = BAF24C7414B7050100B4F0A3 /* logo_ipad.png */; };
+		BAF24C7714B7050C00B4F0A3 /* logo_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = BAF24C7614B7050C00B4F0A3 /* logo_ipad.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +96,10 @@
 		BA85D92B14B6F94D00509416 /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
 		BA85D92C14B6F94D00509416 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		BA85D92D14B6F94D00509416 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		BA85D93814B7018800509416 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		BA85D93A14B7018E00509416 /* logo_retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_retina.png; sourceTree = "<group>"; };
+		BAF24C7414B7050100B4F0A3 /* logo_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_ipad.png; sourceTree = "<group>"; };
+		BAF24C7614B7050C00B4F0A3 /* logo_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_ipad.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +123,9 @@
 		BA85D84814B6F66E00509416 = {
 			isa = PBXGroup;
 			children = (
+				BAF24C7614B7050C00B4F0A3 /* logo_ipad.png */,
+				BA85D93A14B7018E00509416 /* logo_retina.png */,
+				BA85D93814B7018800509416 /* logo.png */,
 				BA85D91714B6F94D00509416 /* ASIHttpRequest */,
 				BA85D91514B6F8C100509416 /* libz.dylib */,
 				BA85D91314B6F8B600509416 /* MobileCoreServices.framework */,
@@ -179,6 +190,7 @@
 		BA85D8F814B6F6C100509416 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BAF24C7414B7050100B4F0A3 /* logo_ipad.png */,
 				BA85D8F914B6F6C100509416 /* fondo.png */,
 				BA85D8FA14B6F6C100509416 /* logo.png */,
 				BA85D8FB14B6F6C100509416 /* logo_retina.png */,
@@ -292,6 +304,10 @@
 				BA85D8FE14B6F6C100509416 /* logo.png in Resources */,
 				BA85D8FF14B6F6C100509416 /* logo_retina.png in Resources */,
 				BA85D90014B6F6C100509416 /* portada.png in Resources */,
+				BA85D93914B7018800509416 /* logo.png in Resources */,
+				BA85D93B14B7018E00509416 /* logo_retina.png in Resources */,
+				BAF24C7514B7050100B4F0A3 /* logo_ipad.png in Resources */,
+				BAF24C7714B7050C00B4F0A3 /* logo_ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +455,7 @@
 				BA85D87614B6F66E00509416 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
