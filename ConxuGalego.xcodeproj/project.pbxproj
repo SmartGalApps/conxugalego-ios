@@ -1,0 +1,296 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BA85D85814B6F66E00509416 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA85D85714B6F66E00509416 /* UIKit.framework */; };
+		BA85D85A14B6F66E00509416 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA85D85914B6F66E00509416 /* Foundation.framework */; };
+		BA85D85C14B6F66E00509416 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA85D85B14B6F66E00509416 /* CoreGraphics.framework */; };
+		BA85D86214B6F66E00509416 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA85D86014B6F66E00509416 /* InfoPlist.strings */; };
+		BA85D86414B6F66E00509416 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA85D86314B6F66E00509416 /* main.m */; };
+		BA85D86814B6F66E00509416 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA85D86714B6F66E00509416 /* AppDelegate.m */; };
+		BA85D86B14B6F66E00509416 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA85D86914B6F66E00509416 /* MainStoryboard_iPhone.storyboard */; };
+		BA85D86E14B6F66E00509416 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA85D86C14B6F66E00509416 /* MainStoryboard_iPad.storyboard */; };
+		BA85D87114B6F66E00509416 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA85D87014B6F66E00509416 /* ViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BA85D85314B6F66E00509416 /* ConxuGalego.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConxuGalego.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA85D85714B6F66E00509416 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		BA85D85914B6F66E00509416 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BA85D85B14B6F66E00509416 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BA85D85F14B6F66E00509416 /* ConxuGalego-Info.plist */ = {isa = PBXFileReference; path = "ConxuGalego-Info.plist"; sourceTree = "<group>"; };
+		BA85D86114B6F66E00509416 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA85D86314B6F66E00509416 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BA85D86514B6F66E00509416 /* ConxuGalego-Prefix.pch */ = {isa = PBXFileReference; path = "ConxuGalego-Prefix.pch"; sourceTree = "<group>"; };
+		BA85D86614B6F66E00509416 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		BA85D86714B6F66E00509416 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BA85D86A14B6F66E00509416 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		BA85D86D14B6F66E00509416 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		BA85D86F14B6F66E00509416 /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		BA85D87014B6F66E00509416 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BA85D85014B6F66E00509416 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA85D85814B6F66E00509416 /* UIKit.framework in Frameworks */,
+				BA85D85A14B6F66E00509416 /* Foundation.framework in Frameworks */,
+				BA85D85C14B6F66E00509416 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BA85D84814B6F66E00509416 = {
+			isa = PBXGroup;
+			children = (
+				BA85D85D14B6F66E00509416 /* ConxuGalego */,
+				BA85D85614B6F66E00509416 /* Frameworks */,
+				BA85D85414B6F66E00509416 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BA85D85414B6F66E00509416 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BA85D85314B6F66E00509416 /* ConxuGalego.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BA85D85614B6F66E00509416 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA85D85714B6F66E00509416 /* UIKit.framework */,
+				BA85D85914B6F66E00509416 /* Foundation.framework */,
+				BA85D85B14B6F66E00509416 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BA85D85D14B6F66E00509416 /* ConxuGalego */ = {
+			isa = PBXGroup;
+			children = (
+				BA85D86614B6F66E00509416 /* AppDelegate.h */,
+				BA85D86714B6F66E00509416 /* AppDelegate.m */,
+				BA85D86914B6F66E00509416 /* MainStoryboard_iPhone.storyboard */,
+				BA85D86C14B6F66E00509416 /* MainStoryboard_iPad.storyboard */,
+				BA85D86F14B6F66E00509416 /* ViewController.h */,
+				BA85D87014B6F66E00509416 /* ViewController.m */,
+				BA85D85E14B6F66E00509416 /* Supporting Files */,
+			);
+			path = ConxuGalego;
+			sourceTree = "<group>";
+		};
+		BA85D85E14B6F66E00509416 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BA85D85F14B6F66E00509416 /* ConxuGalego-Info.plist */,
+				BA85D86014B6F66E00509416 /* InfoPlist.strings */,
+				BA85D86314B6F66E00509416 /* main.m */,
+				BA85D86514B6F66E00509416 /* ConxuGalego-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BA85D85214B6F66E00509416 /* ConxuGalego */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA85D87414B6F66E00509416 /* Build configuration list for PBXNativeTarget "ConxuGalego" */;
+			buildPhases = (
+				BA85D84F14B6F66E00509416 /* Sources */,
+				BA85D85014B6F66E00509416 /* Frameworks */,
+				BA85D85114B6F66E00509416 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ConxuGalego;
+			productName = ConxuGalego;
+			productReference = BA85D85314B6F66E00509416 /* ConxuGalego.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BA85D84A14B6F66E00509416 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = ninguna;
+			};
+			buildConfigurationList = BA85D84D14B6F66E00509416 /* Build configuration list for PBXProject "ConxuGalego" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BA85D84814B6F66E00509416;
+			productRefGroup = BA85D85414B6F66E00509416 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BA85D85214B6F66E00509416 /* ConxuGalego */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BA85D85114B6F66E00509416 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA85D86214B6F66E00509416 /* InfoPlist.strings in Resources */,
+				BA85D86B14B6F66E00509416 /* MainStoryboard_iPhone.storyboard in Resources */,
+				BA85D86E14B6F66E00509416 /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BA85D84F14B6F66E00509416 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA85D86414B6F66E00509416 /* main.m in Sources */,
+				BA85D86814B6F66E00509416 /* AppDelegate.m in Sources */,
+				BA85D87114B6F66E00509416 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BA85D86014B6F66E00509416 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA85D86114B6F66E00509416 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		BA85D86914B6F66E00509416 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA85D86A14B6F66E00509416 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		BA85D86C14B6F66E00509416 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA85D86D14B6F66E00509416 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BA85D87214B6F66E00509416 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BA85D87314B6F66E00509416 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BA85D87514B6F66E00509416 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ConxuGalego/ConxuGalego-Prefix.pch";
+				INFOPLIST_FILE = "ConxuGalego/ConxuGalego-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		BA85D87614B6F66E00509416 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ConxuGalego/ConxuGalego-Prefix.pch";
+				INFOPLIST_FILE = "ConxuGalego/ConxuGalego-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BA85D84D14B6F66E00509416 /* Build configuration list for PBXProject "ConxuGalego" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA85D87214B6F66E00509416 /* Debug */,
+				BA85D87314B6F66E00509416 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA85D87414B6F66E00509416 /* Build configuration list for PBXNativeTarget "ConxuGalego" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA85D87514B6F66E00509416 /* Debug */,
+				BA85D87614B6F66E00509416 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BA85D84A14B6F66E00509416 /* Project object */;
+}
