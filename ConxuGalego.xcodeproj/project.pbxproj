@@ -16,6 +16,27 @@
 		BA85D86B14B6F66E00509416 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA85D86914B6F66E00509416 /* MainStoryboard_iPhone.storyboard */; };
 		BA85D86E14B6F66E00509416 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA85D86C14B6F66E00509416 /* MainStoryboard_iPad.storyboard */; };
 		BA85D87114B6F66E00509416 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA85D87014B6F66E00509416 /* ViewController.m */; };
+		BA85D8FD14B6F6C100509416 /* fondo.png in Resources */ = {isa = PBXBuildFile; fileRef = BA85D8F914B6F6C100509416 /* fondo.png */; };
+		BA85D8FE14B6F6C100509416 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = BA85D8FA14B6F6C100509416 /* logo.png */; };
+		BA85D8FF14B6F6C100509416 /* logo_retina.png in Resources */ = {isa = PBXBuildFile; fileRef = BA85D8FB14B6F6C100509416 /* logo_retina.png */; };
+		BA85D90014B6F6C100509416 /* portada.png in Resources */ = {isa = PBXBuildFile; fileRef = BA85D8FC14B6F6C100509416 /* portada.png */; };
+		BA85D90314B6F7CD00509416 /* ConjugateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA85D90214B6F7CD00509416 /* ConjugateViewController.m */; };
+		BA85D90614B6F7F300509416 /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = BA85D90514B6F7F300509416 /* Parser.m */; };
+		BA85D90A14B6F82200509416 /* VerbalTime.m in Sources */ = {isa = PBXBuildFile; fileRef = BA85D90914B6F82200509416 /* VerbalTime.m */; };
+		BA85D90E14B6F85900509416 /* VerbalTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA85D90D14B6F85900509416 /* VerbalTimeCell.m */; };
+		BA85D91014B6F8A700509416 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA85D90F14B6F8A700509416 /* CFNetwork.framework */; };
+		BA85D91214B6F8AF00509416 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA85D91114B6F8AF00509416 /* SystemConfiguration.framework */; };
+		BA85D91414B6F8B600509416 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA85D91314B6F8B600509416 /* MobileCoreServices.framework */; };
+		BA85D91614B6F8C100509416 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA85D91514B6F8C100509416 /* libz.dylib */; };
+		BA85D92E14B6F94D00509416 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = BA85D91914B6F94D00509416 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BA85D92F14B6F94D00509416 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = BA85D91C14B6F94D00509416 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BA85D93014B6F94D00509416 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = BA85D91E14B6F94D00509416 /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BA85D93114B6F94D00509416 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BA85D92014B6F94D00509416 /* ASIDownloadCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BA85D93214B6F94D00509416 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BA85D92214B6F94D00509416 /* ASIFormDataRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BA85D93314B6F94D00509416 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BA85D92414B6F94D00509416 /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BA85D93414B6F94D00509416 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = BA85D92814B6F94D00509416 /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BA85D93514B6F94D00509416 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = BA85D92A14B6F94D00509416 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BA85D93614B6F94D00509416 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = BA85D92D14B6F94D00509416 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,16 +44,54 @@
 		BA85D85714B6F66E00509416 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BA85D85914B6F66E00509416 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BA85D85B14B6F66E00509416 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		BA85D85F14B6F66E00509416 /* ConxuGalego-Info.plist */ = {isa = PBXFileReference; path = "ConxuGalego-Info.plist"; sourceTree = "<group>"; };
+		BA85D85F14B6F66E00509416 /* ConxuGalego-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ConxuGalego-Info.plist"; sourceTree = "<group>"; };
 		BA85D86114B6F66E00509416 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BA85D86314B6F66E00509416 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		BA85D86514B6F66E00509416 /* ConxuGalego-Prefix.pch */ = {isa = PBXFileReference; path = "ConxuGalego-Prefix.pch"; sourceTree = "<group>"; };
-		BA85D86614B6F66E00509416 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		BA85D86514B6F66E00509416 /* ConxuGalego-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ConxuGalego-Prefix.pch"; sourceTree = "<group>"; };
+		BA85D86614B6F66E00509416 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BA85D86714B6F66E00509416 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BA85D86A14B6F66E00509416 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		BA85D86D14B6F66E00509416 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		BA85D86F14B6F66E00509416 /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		BA85D86F14B6F66E00509416 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		BA85D87014B6F66E00509416 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BA85D8F914B6F6C100509416 /* fondo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondo.png; sourceTree = "<group>"; };
+		BA85D8FA14B6F6C100509416 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		BA85D8FB14B6F6C100509416 /* logo_retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_retina.png; sourceTree = "<group>"; };
+		BA85D8FC14B6F6C100509416 /* portada.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = portada.png; sourceTree = "<group>"; };
+		BA85D90114B6F7CD00509416 /* ConjugateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConjugateViewController.h; sourceTree = "<group>"; };
+		BA85D90214B6F7CD00509416 /* ConjugateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConjugateViewController.m; sourceTree = "<group>"; };
+		BA85D90414B6F7F300509416 /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
+		BA85D90514B6F7F300509416 /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parser.m; sourceTree = "<group>"; };
+		BA85D90814B6F82200509416 /* VerbalTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerbalTime.h; sourceTree = "<group>"; };
+		BA85D90914B6F82200509416 /* VerbalTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerbalTime.m; sourceTree = "<group>"; };
+		BA85D90C14B6F85900509416 /* VerbalTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerbalTimeCell.h; sourceTree = "<group>"; };
+		BA85D90D14B6F85900509416 /* VerbalTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerbalTimeCell.m; sourceTree = "<group>"; };
+		BA85D90F14B6F8A700509416 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		BA85D91114B6F8AF00509416 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		BA85D91314B6F8B600509416 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		BA85D91514B6F8C100509416 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		BA85D91814B6F94D00509416 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
+		BA85D91914B6F94D00509416 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
+		BA85D91A14B6F94D00509416 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
+		BA85D91B14B6F94D00509416 /* ASIDataCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataCompressor.h; sourceTree = "<group>"; };
+		BA85D91C14B6F94D00509416 /* ASIDataCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataCompressor.m; sourceTree = "<group>"; };
+		BA85D91D14B6F94D00509416 /* ASIDataDecompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataDecompressor.h; sourceTree = "<group>"; };
+		BA85D91E14B6F94D00509416 /* ASIDataDecompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataDecompressor.m; sourceTree = "<group>"; };
+		BA85D91F14B6F94D00509416 /* ASIDownloadCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDownloadCache.h; sourceTree = "<group>"; };
+		BA85D92014B6F94D00509416 /* ASIDownloadCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDownloadCache.m; sourceTree = "<group>"; };
+		BA85D92114B6F94D00509416 /* ASIFormDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIFormDataRequest.h; sourceTree = "<group>"; };
+		BA85D92214B6F94D00509416 /* ASIFormDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIFormDataRequest.m; sourceTree = "<group>"; };
+		BA85D92314B6F94D00509416 /* ASIHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequest.h; sourceTree = "<group>"; };
+		BA85D92414B6F94D00509416 /* ASIHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIHTTPRequest.m; sourceTree = "<group>"; };
+		BA85D92514B6F94D00509416 /* ASIHTTPRequestConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestConfig.h; sourceTree = "<group>"; };
+		BA85D92614B6F94D00509416 /* ASIHTTPRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestDelegate.h; sourceTree = "<group>"; };
+		BA85D92714B6F94D00509416 /* ASIInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIInputStream.h; sourceTree = "<group>"; };
+		BA85D92814B6F94D00509416 /* ASIInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIInputStream.m; sourceTree = "<group>"; };
+		BA85D92914B6F94D00509416 /* ASINetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINetworkQueue.h; sourceTree = "<group>"; };
+		BA85D92A14B6F94D00509416 /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASINetworkQueue.m; sourceTree = "<group>"; };
+		BA85D92B14B6F94D00509416 /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
+		BA85D92C14B6F94D00509416 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		BA85D92D14B6F94D00509416 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,9 +99,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA85D91614B6F8C100509416 /* libz.dylib in Frameworks */,
+				BA85D85C14B6F66E00509416 /* CoreGraphics.framework in Frameworks */,
+				BA85D91414B6F8B600509416 /* MobileCoreServices.framework in Frameworks */,
+				BA85D91214B6F8AF00509416 /* SystemConfiguration.framework in Frameworks */,
+				BA85D91014B6F8A700509416 /* CFNetwork.framework in Frameworks */,
 				BA85D85814B6F66E00509416 /* UIKit.framework in Frameworks */,
 				BA85D85A14B6F66E00509416 /* Foundation.framework in Frameworks */,
-				BA85D85C14B6F66E00509416 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +115,12 @@
 		BA85D84814B6F66E00509416 = {
 			isa = PBXGroup;
 			children = (
+				BA85D91714B6F94D00509416 /* ASIHttpRequest */,
+				BA85D91514B6F8C100509416 /* libz.dylib */,
+				BA85D91314B6F8B600509416 /* MobileCoreServices.framework */,
+				BA85D91114B6F8AF00509416 /* SystemConfiguration.framework */,
+				BA85D90F14B6F8A700509416 /* CFNetwork.framework */,
+				BA85D8F814B6F6C100509416 /* Images */,
 				BA85D85D14B6F66E00509416 /* ConxuGalego */,
 				BA85D85614B6F66E00509416 /* Frameworks */,
 				BA85D85414B6F66E00509416 /* Products */,
@@ -86,6 +155,12 @@
 				BA85D86F14B6F66E00509416 /* ViewController.h */,
 				BA85D87014B6F66E00509416 /* ViewController.m */,
 				BA85D85E14B6F66E00509416 /* Supporting Files */,
+				BA85D90114B6F7CD00509416 /* ConjugateViewController.h */,
+				BA85D90214B6F7CD00509416 /* ConjugateViewController.m */,
+				BA85D90714B6F81200509416 /* Util */,
+				BA85D90B14B6F83C00509416 /* Model */,
+				BA85D90C14B6F85900509416 /* VerbalTimeCell.h */,
+				BA85D90D14B6F85900509416 /* VerbalTimeCell.m */,
 			);
 			path = ConxuGalego;
 			sourceTree = "<group>";
@@ -99,6 +174,64 @@
 				BA85D86514B6F66E00509416 /* ConxuGalego-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BA85D8F814B6F6C100509416 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				BA85D8F914B6F6C100509416 /* fondo.png */,
+				BA85D8FA14B6F6C100509416 /* logo.png */,
+				BA85D8FB14B6F6C100509416 /* logo_retina.png */,
+				BA85D8FC14B6F6C100509416 /* portada.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		BA85D90714B6F81200509416 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				BA85D90414B6F7F300509416 /* Parser.h */,
+				BA85D90514B6F7F300509416 /* Parser.m */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		BA85D90B14B6F83C00509416 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BA85D90814B6F82200509416 /* VerbalTime.h */,
+				BA85D90914B6F82200509416 /* VerbalTime.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		BA85D91714B6F94D00509416 /* ASIHttpRequest */ = {
+			isa = PBXGroup;
+			children = (
+				BA85D91814B6F94D00509416 /* ASIAuthenticationDialog.h */,
+				BA85D91914B6F94D00509416 /* ASIAuthenticationDialog.m */,
+				BA85D91A14B6F94D00509416 /* ASICacheDelegate.h */,
+				BA85D91B14B6F94D00509416 /* ASIDataCompressor.h */,
+				BA85D91C14B6F94D00509416 /* ASIDataCompressor.m */,
+				BA85D91D14B6F94D00509416 /* ASIDataDecompressor.h */,
+				BA85D91E14B6F94D00509416 /* ASIDataDecompressor.m */,
+				BA85D91F14B6F94D00509416 /* ASIDownloadCache.h */,
+				BA85D92014B6F94D00509416 /* ASIDownloadCache.m */,
+				BA85D92114B6F94D00509416 /* ASIFormDataRequest.h */,
+				BA85D92214B6F94D00509416 /* ASIFormDataRequest.m */,
+				BA85D92314B6F94D00509416 /* ASIHTTPRequest.h */,
+				BA85D92414B6F94D00509416 /* ASIHTTPRequest.m */,
+				BA85D92514B6F94D00509416 /* ASIHTTPRequestConfig.h */,
+				BA85D92614B6F94D00509416 /* ASIHTTPRequestDelegate.h */,
+				BA85D92714B6F94D00509416 /* ASIInputStream.h */,
+				BA85D92814B6F94D00509416 /* ASIInputStream.m */,
+				BA85D92914B6F94D00509416 /* ASINetworkQueue.h */,
+				BA85D92A14B6F94D00509416 /* ASINetworkQueue.m */,
+				BA85D92B14B6F94D00509416 /* ASIProgressDelegate.h */,
+				BA85D92C14B6F94D00509416 /* Reachability.h */,
+				BA85D92D14B6F94D00509416 /* Reachability.m */,
+			);
+			path = ASIHttpRequest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +288,10 @@
 				BA85D86214B6F66E00509416 /* InfoPlist.strings in Resources */,
 				BA85D86B14B6F66E00509416 /* MainStoryboard_iPhone.storyboard in Resources */,
 				BA85D86E14B6F66E00509416 /* MainStoryboard_iPad.storyboard in Resources */,
+				BA85D8FD14B6F6C100509416 /* fondo.png in Resources */,
+				BA85D8FE14B6F6C100509416 /* logo.png in Resources */,
+				BA85D8FF14B6F6C100509416 /* logo_retina.png in Resources */,
+				BA85D90014B6F6C100509416 /* portada.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +305,19 @@
 				BA85D86414B6F66E00509416 /* main.m in Sources */,
 				BA85D86814B6F66E00509416 /* AppDelegate.m in Sources */,
 				BA85D87114B6F66E00509416 /* ViewController.m in Sources */,
+				BA85D90314B6F7CD00509416 /* ConjugateViewController.m in Sources */,
+				BA85D90614B6F7F300509416 /* Parser.m in Sources */,
+				BA85D90A14B6F82200509416 /* VerbalTime.m in Sources */,
+				BA85D90E14B6F85900509416 /* VerbalTimeCell.m in Sources */,
+				BA85D92E14B6F94D00509416 /* ASIAuthenticationDialog.m in Sources */,
+				BA85D92F14B6F94D00509416 /* ASIDataCompressor.m in Sources */,
+				BA85D93014B6F94D00509416 /* ASIDataDecompressor.m in Sources */,
+				BA85D93114B6F94D00509416 /* ASIDownloadCache.m in Sources */,
+				BA85D93214B6F94D00509416 /* ASIFormDataRequest.m in Sources */,
+				BA85D93314B6F94D00509416 /* ASIHTTPRequest.m in Sources */,
+				BA85D93414B6F94D00509416 /* ASIInputStream.m in Sources */,
+				BA85D93514B6F94D00509416 /* ASINetworkQueue.m in Sources */,
+				BA85D93614B6F94D00509416 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
