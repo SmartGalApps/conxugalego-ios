@@ -7,9 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ConjugateViewController.h"
+#import "ViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate> {
+    ConjugateViewController *conjugateViewController;
+    ViewController *viewController;
+}
 
+@property (strong, nonatomic) ConjugateViewController *conjugateViewController;
+@property (strong, nonatomic) ViewController *viewController;
 @property (strong, nonatomic) UIWindow *window;
 
 @end

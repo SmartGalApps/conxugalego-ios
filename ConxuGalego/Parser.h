@@ -9,8 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "VerbalTime.h"
 
+@protocol ParserDelegate <NSObject>
+
+-(void) doOnSuccess:(NSArray *)conjugations;
+-(void) doOnNotFound;
+
+@end
+
 @interface Parser : NSObject
 
-+(NSArray *)parse:(NSString *) text;
+@property (nonatomic, retain) id<ParserDelegate> delegate;
+
+-(void)parse:(NSString *) text;
 
 @end

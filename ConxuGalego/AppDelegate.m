@@ -7,14 +7,56 @@
 //
 
 #import "AppDelegate.h"
+#import "ConjugateViewController.h"
+#import "ViewController.h"
 
 @implementation AppDelegate
 
 @synthesize window = _window;
+@synthesize conjugateViewController;
+@synthesize viewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    NSString *term = [[url absoluteString] substringFromIndex:10];
+    if (self.conjugateViewController == nil)
+    {
+        ConjugateViewController *theConjugateViewController = [[[[self window] rootViewController] storyboard] instantiateViewControllerWithIdentifier:@"ConjugateViewController"];
+        
+        self.conjugateViewController = theConjugateViewController;
+        self.conjugateViewController.verbToConjugate = term;
+    }
+    else
+    {
+        self.conjugateViewController.verbToConjugate = term;
+        [self.conjugateViewController grabURLInBackground:self];
+    }
+    if (self.viewController == nil)
+    {
+        ViewController *theViewController = [[[[self window] rootViewController] storyboard] instantiateViewControllerWithIdentifier:@"ViewController"];
+        
+        self.viewController = theViewController;
+    } 
+    
+    UINavigationController *mainViewNavController = [[UINavigationController alloc] init];
+    
+    if (viewController != nil)
+    {
+        [mainViewNavController pushViewController:viewController animated:FALSE];
+    }
+    
+    if (self.conjugateViewController != nil)
+    {
+        [mainViewNavController pushViewController:self.conjugateViewController animated:FALSE];
+    }
+    
+    [self.window setRootViewController:mainViewNavController];
     return YES;
 }
 							

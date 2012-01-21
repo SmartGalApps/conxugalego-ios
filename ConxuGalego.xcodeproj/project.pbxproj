@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA10B7C714CB235800DE04CC /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = BA10B7C614CB235800DE04CC /* Helper.m */; };
 		BA85D85814B6F66E00509416 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA85D85714B6F66E00509416 /* UIKit.framework */; };
 		BA85D85A14B6F66E00509416 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA85D85914B6F66E00509416 /* Foundation.framework */; };
 		BA85D85C14B6F66E00509416 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA85D85B14B6F66E00509416 /* CoreGraphics.framework */; };
@@ -44,6 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA10B7C514CB235800DE04CC /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
+		BA10B7C614CB235800DE04CC /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
 		BA85D85314B6F66E00509416 /* ConxuGalego.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConxuGalego.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA85D85714B6F66E00509416 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BA85D85914B6F66E00509416 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -172,6 +175,8 @@
 				BA85D90B14B6F83C00509416 /* Model */,
 				BA85D90C14B6F85900509416 /* VerbalTimeCell.h */,
 				BA85D90D14B6F85900509416 /* VerbalTimeCell.m */,
+				BA10B7C514CB235800DE04CC /* Helper.h */,
+				BA10B7C614CB235800DE04CC /* Helper.m */,
 			);
 			path = ConxuGalego;
 			sourceTree = "<group>";
@@ -334,6 +339,7 @@
 				BA85D93414B6F94D00509416 /* ASIInputStream.m in Sources */,
 				BA85D93514B6F94D00509416 /* ASINetworkQueue.m in Sources */,
 				BA85D93614B6F94D00509416 /* Reachability.m in Sources */,
+				BA10B7C714CB235800DE04CC /* Helper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

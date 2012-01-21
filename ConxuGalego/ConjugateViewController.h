@@ -7,11 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Parser.h"
 
-@interface ConjugateViewController : UITableViewController {
+@interface ConjugateViewController : UITableViewController <ParserDelegate> {
+    NSString *verbToConjugate;
     NSArray *verbalTimes;
 }
 
+@property (nonatomic, retain) NSString* verbToConjugate;
 @property (nonatomic, retain) NSArray* verbalTimes;
+
+- (IBAction)grabURLInBackground:(id)sender;
 
 @end

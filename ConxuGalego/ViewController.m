@@ -11,6 +11,7 @@
 #import "ASIHTTPRequest.h"
 #import "Parser.h"
 #import "VerbalTime.h"
+#import "Helper.h"
 
 @implementation ViewController
 
@@ -85,7 +86,7 @@
     }
     if ([self.verbTextField.text length] > 0) {
         [self grabURLInBackground:self];
-        [self showAlert];
+        [Helper showAlert];
     }
 }
 
@@ -101,7 +102,7 @@
 {
 	if ([segue.identifier isEqualToString:@"Conjugate"])
 	{
-        [self dismissAlert];
+        [Helper dismissAlert];
 		ConjugateViewController *conjugateViewController = 
         segue.destinationViewController;
         conjugateViewController.verbalTimes = self.verbalTimes;
@@ -112,27 +113,9 @@
     [self search];
 }
 
--(void)showAlert {
-    self.loadingAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Conxugando verbo...", nil) 
-                                                   message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
-    [self.loadingAlert show];
-    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    
-    indicator.center = CGPointMake(self.loadingAlert.bounds.size.width / 2, self.loadingAlert.bounds.size.height - 50);
-    [indicator startAnimating];
-    [self.loadingAlert addSubview:indicator];
-}
-
--(void)dismissAlert {
-    [self.loadingAlert dismissWithClickedButtonIndex:0 animated:YES];
-}
-
 - (IBAction)grabURLInBackground:(id)sender
 {
-    NSMutableString *urlString = [NSMutableString string];
-    [urlString appendString:@"http://sonxurxo.com/conxuga/conshuga.pl?"];
-    [urlString appendString:self.verbTextField.text];
-    NSURL *url = [NSURL URLWithString:urlString];
+    NSURL *url = [Helper getUrl:self.verbTextField.text];
     
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     [request setDelegate:self];
@@ -143,38 +126,33 @@
 {
     // Use when fetching text data
     NSString *responseString = [request responseString];
-    
-    NSLog(@"the html was %@", responseString);
-    
-    self.verbalTimes = [Parser parse:responseString];
-    
-    if ([self.verbalTimes count] == 0) {
-        NSMutableString *message = [[NSMutableString alloc] initWithFormat:NSLocalizedString(@"O termo \'%@\' non ten forma de verbo", nil), self.verbTextField.text];
-        UIAlertView *info = [[UIAlertView alloc] 
-                             initWithTitle:nil message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles: nil];
-        [self dismissAlert];
-        [info show];
-        return;
-    }
-    
-    NSMutableString *tempResult = [[NSMutableString alloc] init];
-    
-    for (VerbalTime *verbalTime in self.verbalTimes) {
-        [tempResult appendString:verbalTime.name];
-        [tempResult appendString:@": "];
-        for (NSString *time in verbalTime.times) {
-            [tempResult appendString:time];
-            [tempResult appendString:@", "];
-        }
-        [tempResult appendString:@"\n"];
-    }
-    [self performSegueWithIdentifier:@"Conjugate" sender:self];    
+    Parser *parser = [[Parser alloc] init];
+    parser.delegate = self;
+    [parser parse:responseString];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+#pragma mark - ParserDelegate
+
+-(void) doOnSuccess:(NSArray *)conjugations
+{
+    self.verbalTimes = conjugations;
+    [self performSegueWithIdentifier:@"Conjugate" sender:self];
+}
+-(void) doOnNotFound
+{
+    NSMutableString *message = [[NSMutableString alloc] initWithFormat:NSLocalizedString(@"O termo \'%@\' non ten forma de verbo", nil), self.verbTextField.text];
+    UIAlertView *info = [[UIAlertView alloc] 
+                         initWithTitle:nil message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles: nil];
+    [Helper dismissAlert];
+    [info show];
+}
+
+#pragma mark - end
 
 - (void)registerForKeyboardNotifications
 {

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Parser.h"
 
-@interface ViewController : UIViewController <UITextFieldDelegate> {
+@interface ViewController : UIViewController <UITextFieldDelegate, ParserDelegate> {
     NSMutableData* responseData;
     NSArray *verbalTimes;
     UIAlertView *loadingAlert;

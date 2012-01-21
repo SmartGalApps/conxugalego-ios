@@ -10,8 +10,9 @@
 #import "Verbaltime.h"
 
 @implementation Parser
+@synthesize delegate;
 
-+(NSArray *)parse:(NSString *) text {
+-(void)parse:(NSString *) text {
     NSArray *split1 = [text componentsSeparatedByString:@"\n"];
     
     int badTimes = 0;
@@ -38,7 +39,12 @@
     }
     
     [theResult sortUsingSelector:@selector(compare:)];
-    return theResult;
+    if ([theResult count] == 0)
+    {
+        [self.delegate doOnNotFound];
+    }
+    [self.delegate doOnSuccess:theResult];
+//    return theResult;
 }
 
 @end

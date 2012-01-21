@@ -12,9 +12,11 @@
 #import "VerbalTime.h"
 #import "VerbalTimeCell.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Helper.h"
 
 @implementation ConjugateViewController
 @synthesize verbalTimes;
+@synthesize verbToConjugate;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -37,6 +39,9 @@
     [super viewDidLoad];
     UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fondo.png"]];
     self.tableView.backgroundView = backgroundImageView;
+    if (self.verbToConjugate != nil) {
+        [self grabURLInBackground:self];
+    }
 }
 
 - (void)viewDidUnload
@@ -68,6 +73,50 @@
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+- (IBAction)grabURLInBackground:(id)sender
+{
+    NSURL *url = [Helper getUrl:self.verbToConjugate];
+    
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    [request setDelegate:self];
+    [Helper showAlert];
+    [request startAsynchronous];
+}
+
+- (void)requestFinished:(ASIHTTPRequest *)request
+{
+    // Use when fetching text data
+    NSString *responseString = [request responseString];
+    Parser *parser = [[Parser alloc] init];
+    parser.delegate = self;
+    [parser parse:responseString];
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - ParserDelegate
+
+-(void) doOnSuccess:(NSArray *)conjugations
+{
+    [Helper dismissAlert];
+    self.verbalTimes = conjugations;
+    [[self tableView] reloadData];
+}
+-(void) doOnNotFound
+{
+    NSMutableString *message = [[NSMutableString alloc] initWithFormat:NSLocalizedString(@"O termo \'%@\' non ten forma de verbo", nil), self.verbToConjugate];
+    UIAlertView *info = [[UIAlertView alloc] 
+                         initWithTitle:nil message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles: nil];
+    [Helper dismissAlert];
+    [info show];
+}
+
+#pragma mark - end
+
 
 #pragma mark - Table view data source
 
