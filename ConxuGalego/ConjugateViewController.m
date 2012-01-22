@@ -44,29 +44,6 @@
 }
 
 /*
- * Comprueba si el verbo existe en el Volga
- */
--(BOOL)existsVerb:(NSString* ) verb
-{
-    NSString* path = [[NSBundle mainBundle] pathForResource:@"verbosVolga" 
-                                                     ofType:@"txt"];
-    NSString* verbosVolga = [NSString stringWithContentsOfFile:path
-                                                 encoding:NSUTF8StringEncoding
-                                                    error:NULL];
-    NSArray* lines = 
-    [verbosVolga componentsSeparatedByCharactersInSet:
-     [NSCharacterSet newlineCharacterSet]];
-    for (NSString* line in lines)
-    {
-        if ([line isEqualToString:self.verbFromMainViewController])
-        {
-            return TRUE;
-        }
-    }
-    return FALSE;
-}
-
-/*
  * Hace la petición al servidor. Esto pasa cuando se invoca con la integración
  */
 - (IBAction)grabURLInBackground:(id)sender
@@ -103,7 +80,7 @@
         [self.bottomToolbar setHidden:FALSE];
     }
     // Comprueba si existe en el Volga, y muestra la etiqueta si no
-    if ([self existsVerb:verbToCheck])
+    if ([Helper existsVerb:verbToCheck])
     {
         [self.doesNotExistLabel setHidden:TRUE];
     }
@@ -144,7 +121,16 @@
 - (IBAction)define:(id)sender {
     NSString *urlString = [[NSString alloc] initWithFormat:@"define://%@", self.verbFromMainViewController];
     NSURL *myURL = [NSURL URLWithString:urlString];
-    [[UIApplication sharedApplication] openURL:myURL];
+    if ([[UIApplication sharedApplication] canOpenURL:myURL])
+    {
+        [[UIApplication sharedApplication] openURL:myURL];
+    }
+    else
+    {
+        NSString *appURLString = [[NSString alloc] initWithFormat:@"http://itunes.com/apps/dicionariogalego"];
+        NSURL *appURL = [NSURL URLWithString:appURLString];
+        [[UIApplication sharedApplication] openURL:appURL];
+    }
 }
 
 /*
@@ -153,7 +139,16 @@
 - (IBAction)translate:(id)sender {
     NSString *urlString = [[NSString alloc] initWithFormat:@"traduce://%@", self.verbFromMainViewController];
     NSURL *myURL = [NSURL URLWithString:urlString];
-    [[UIApplication sharedApplication] openURL:myURL];
+    if ([[UIApplication sharedApplication] canOpenURL:myURL])
+    {
+        [[UIApplication sharedApplication] openURL:myURL];
+    }
+    else
+    {
+        NSString *appURLString = [[NSString alloc] initWithFormat:@"http://itunes.com/apps/tradutorgalego"];
+        NSURL *appURL = [NSURL URLWithString:appURLString];
+        [[UIApplication sharedApplication] openURL:appURL];
+    }
 }
 
 /*

@@ -109,19 +109,6 @@
 }
 
 /*
- * Para activar el ENTER del teclado virtual como botón de búsqueda
- */
-- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
-    if (theTextField == self.verbTextField) {
-        [theTextField resignFirstResponder];
-    }
-    [self search];
-    return YES;
-}
-
-
-
-/*
  * Si la longitud de lo introducido es 0, desactiva el botón.
  * También es aquí donde se comprueba la longitud máxima para permitir seguir escribiendo o no
  */
@@ -229,6 +216,17 @@
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
     scrollView.contentInset = contentInsets;
     scrollView.scrollIndicatorInsets = contentInsets;
+}
+
+/*
+ * Para activar el ENTER del teclado virtual como botón de búsqueda
+ */
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+    if (theTextField == self.verbTextField) {
+        [theTextField resignFirstResponder];
+    }
+    [self search];
+    return YES;
 }
 
 @end
