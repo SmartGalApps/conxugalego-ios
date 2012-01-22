@@ -106,6 +106,7 @@
 		ConjugateViewController *conjugateViewController = 
         segue.destinationViewController;
         conjugateViewController.verbalTimes = self.verbalTimes;
+        conjugateViewController.verb = self.verbTextField.text;
 	}
 }
 

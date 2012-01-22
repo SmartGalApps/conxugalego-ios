@@ -16,16 +16,12 @@
 
 @implementation ConjugateViewController
 @synthesize verbalTimes;
+@synthesize tableView;
+@synthesize defineButton;
+@synthesize translateButton;
+@synthesize bottomToolbar;
 @synthesize verbToConjugate;
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@synthesize verb;
 
 - (void)didReceiveMemoryWarning
 {
@@ -41,11 +37,20 @@
     self.tableView.backgroundView = backgroundImageView;
     if (self.verbToConjugate != nil) {
         [self grabURLInBackground:self];
+        [self.bottomToolbar setHidden:TRUE];
+    }
+    else
+    {
+        [self.bottomToolbar setHidden:FALSE];
     }
 }
 
 - (void)viewDidUnload
 {
+    [self setTableView:nil];
+    [self setDefineButton:nil];
+    [self setTranslateButton:nil];
+    [self setBottomToolbar:nil];
     [super viewDidUnload];
 }
 
@@ -84,6 +89,18 @@
     [request startAsynchronous];
 }
 
+- (IBAction)define:(id)sender {
+    NSString *urlString = [[NSString alloc] initWithFormat:@"define://%@", self.verb];
+    NSURL *myURL = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:myURL];
+}
+
+- (IBAction)translate:(id)sender {
+    NSString *urlString = [[NSString alloc] initWithFormat:@"traduce://%@", self.verb];
+    NSURL *myURL = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:myURL];
+}
+
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
     // Use when fetching text data
@@ -106,6 +123,7 @@
     self.verbalTimes = conjugations;
     [[self tableView] reloadData];
 }
+
 -(void) doOnNotFound
 {
     NSMutableString *message = [[NSMutableString alloc] initWithFormat:NSLocalizedString(@"O termo \'%@\' non ten forma de verbo", nil), self.verbToConjugate];
@@ -130,10 +148,11 @@
     return [self.verbalTimes count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    VerbalTimeCell *cell = (VerbalTimeCell *)[tableView 
+    VerbalTimeCell *cell = (VerbalTimeCell *)[theTableView 
                                               dequeueReusableCellWithIdentifier:@"VerbalTimeCell"];
+
 	VerbalTime *verbalTime = [self.verbalTimes objectAtIndex:indexPath.row];
     if ([verbalTime.name isEqualToString:@"PI"]) {
         cell.time.text = @"Presente de Indicativo";
