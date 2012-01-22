@@ -22,30 +22,44 @@
     return YES;
 }
 
+/*
+ * Para integración
+ */
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
+    // O termo a buscar
     NSString *term = [[url absoluteString] substringFromIndex:10];
+    
+    // Primeira vez que se arranca a integración
     if (self.conjugateViewController == nil)
     {
+        // Creo o ViewController do storyboard
         ConjugateViewController *theConjugateViewController = [[[[self window] rootViewController] storyboard] instantiateViewControllerWithIdentifier:@"ConjugateViewController"];
         
+        // Gárdoo para futuros usos e asigno o termo a buscar
         self.conjugateViewController = theConjugateViewController;
-        self.conjugateViewController.verbToConjugate = term;
+        self.conjugateViewController.verbFromIntegration = term;
     }
     else
     {
-        self.conjugateViewController.verbToConjugate = term;
+        // Asigno o termo a buscar e busco (non se vai chamar a viewDidLoad, que é onde se conecta ao servidor a primeira vez)
+        self.conjugateViewController.verbFromIntegration = term;
         [self.conjugateViewController grabURLInBackground:self];
     }
+    
+    // Creo a pantalla principal para metela no UINavigationController
     if (self.viewController == nil)
     {
         ViewController *theViewController = [[[[self window] rootViewController] storyboard] instantiateViewControllerWithIdentifier:@"ViewController"];
         
+        // Gárdoo para futuros usos
         self.viewController = theViewController;
     } 
     
+    // Creo o UINavigationController
     UINavigationController *mainViewNavController = [[UINavigationController alloc] init];
     
+    // Engado os ViewControllers ao navigator
     if (viewController != nil)
     {
         [mainViewNavController pushViewController:viewController animated:FALSE];
@@ -56,6 +70,7 @@
         [mainViewNavController pushViewController:self.conjugateViewController animated:FALSE];
     }
     
+    // Amosar
     [self.window setRootViewController:mainViewNavController];
     return YES;
 }

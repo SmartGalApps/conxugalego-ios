@@ -10,18 +10,20 @@
 #import "Parser.h"
 
 @interface ConjugateViewController : UIViewController <ParserDelegate> {
-    NSString *verb;
-    NSString *verbToConjugate;
+    NSString *verbFromMainViewController;
+    NSString *verbFromIntegration;
     NSArray *verbalTimes;
 }
 
-@property (nonatomic, retain) NSString* verb;
-@property (nonatomic, retain) NSString* verbToConjugate;
+@property (nonatomic, retain) NSString* verbFromMainViewController;
+@property (nonatomic, retain) NSString* verbFromIntegration;
 @property (nonatomic, retain) NSArray* verbalTimes;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *defineButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *translateButton;
 @property (weak, nonatomic) IBOutlet UIToolbar *bottomToolbar;
+@property (weak, nonatomic) IBOutlet UILabel *doesNotExistLabel;
 
 - (IBAction)grabURLInBackground:(id)sender;
 - (IBAction)define:(id)sender;

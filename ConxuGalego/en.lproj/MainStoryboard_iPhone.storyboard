@@ -256,6 +256,13 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="O verbo non existe" lineBreakMode="tailTruncation" minimumFontSize="10" id="dbT-YB-KH3">
+                                <rect key="frame" x="156" y="383" width="144" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -263,6 +270,7 @@
                     <connections>
                         <outlet property="bottomToolbar" destination="ELv-zu-xg9" id="DK4-yC-sRp"/>
                         <outlet property="defineButton" destination="6ei-uq-IQi" id="df9-Dc-kxs"/>
+                        <outlet property="doesNotExistLabel" destination="dbT-YB-KH3" id="4p7-D7-aOM"/>
                         <outlet property="tableView" destination="eAY-33-Ehq" id="brK-oM-64e"/>
                         <outlet property="translateButton" destination="Lah-vm-W6Q" id="yTQ-lT-YNw"/>
                     </connections>

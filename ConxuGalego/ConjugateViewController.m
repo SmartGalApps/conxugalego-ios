@@ -15,17 +15,68 @@
 #import "Helper.h"
 
 @implementation ConjugateViewController
+
 @synthesize verbalTimes;
+@synthesize verbFromIntegration;
+@synthesize verbFromMainViewController;
+
 @synthesize tableView;
 @synthesize defineButton;
 @synthesize translateButton;
 @synthesize bottomToolbar;
-@synthesize verbToConjugate;
-@synthesize verb;
+@synthesize doesNotExistLabel;
 
+- (void)viewDidUnload
+{
+    [self setVerbalTimes:nil];
+    [self setVerbFromIntegration:nil];
+    [self setVerbFromMainViewController:nil];
+    [self setTableView:nil];
+    [self setDefineButton:nil];
+    [self setTranslateButton:nil];
+    [self setBottomToolbar:nil];
+    [self setDoesNotExistLabel:nil];
+    [super viewDidUnload];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+/*
+ * Comprueba si el verbo existe en el Volga
+ */
+-(BOOL)existsVerb:(NSString* ) verb
+{
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"verbosVolga" 
+                                                     ofType:@"txt"];
+    NSString* verbosVolga = [NSString stringWithContentsOfFile:path
+                                                 encoding:NSUTF8StringEncoding
+                                                    error:NULL];
+    NSArray* lines = 
+    [verbosVolga componentsSeparatedByCharactersInSet:
+     [NSCharacterSet newlineCharacterSet]];
+    for (NSString* line in lines)
+    {
+        if ([line isEqualToString:self.verbFromMainViewController])
+        {
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+/*
+ * Hace la petición al servidor. Esto pasa cuando se invoca con la integración
+ */
+- (IBAction)grabURLInBackground:(id)sender
+{
+    NSURL *url = [Helper getUrl:self.verbFromIntegration];
+    
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    [request setDelegate:self];
+    [Helper showAlert];
+    [request startAsynchronous];
 }
 
 #pragma mark - View lifecycle
@@ -33,25 +84,33 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    // Imagen de fondo
     UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fondo.png"]];
     self.tableView.backgroundView = backgroundImageView;
-    if (self.verbToConjugate != nil) {
+    
+    NSString * verbToCheck;
+    
+    // Si viene de la integración, hay que llamar al servidor y ocultar la toolbar de abajo
+    if (self.verbFromIntegration != nil) {
+        verbToCheck = self.verbFromIntegration;
         [self grabURLInBackground:self];
         [self.bottomToolbar setHidden:TRUE];
     }
     else
     {
+        verbToCheck = self.verbFromMainViewController;
         [self.bottomToolbar setHidden:FALSE];
     }
-}
-
-- (void)viewDidUnload
-{
-    [self setTableView:nil];
-    [self setDefineButton:nil];
-    [self setTranslateButton:nil];
-    [self setBottomToolbar:nil];
-    [super viewDidUnload];
+    // Comprueba si existe en el Volga, y muestra la etiqueta si no
+    if ([self existsVerb:verbToCheck])
+    {
+        [self.doesNotExistLabel setHidden:TRUE];
+    }
+    else
+    {
+        [self.doesNotExistLabel setHidden:FALSE];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -79,28 +138,27 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (IBAction)grabURLInBackground:(id)sender
-{
-    NSURL *url = [Helper getUrl:self.verbToConjugate];
-    
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    [request setDelegate:self];
-    [Helper showAlert];
-    [request startAsynchronous];
-}
-
+/*
+ * Botón de integración
+ */
 - (IBAction)define:(id)sender {
-    NSString *urlString = [[NSString alloc] initWithFormat:@"define://%@", self.verb];
+    NSString *urlString = [[NSString alloc] initWithFormat:@"define://%@", self.verbFromMainViewController];
     NSURL *myURL = [NSURL URLWithString:urlString];
     [[UIApplication sharedApplication] openURL:myURL];
 }
 
+/*
+ * Botón de integración
+ */
 - (IBAction)translate:(id)sender {
-    NSString *urlString = [[NSString alloc] initWithFormat:@"traduce://%@", self.verb];
+    NSString *urlString = [[NSString alloc] initWithFormat:@"traduce://%@", self.verbFromMainViewController];
     NSURL *myURL = [NSURL URLWithString:urlString];
     [[UIApplication sharedApplication] openURL:myURL];
 }
 
+/*
+ * Si la petición tuvo éxito, parsear (viene de integración)
+ */
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
     // Use when fetching text data
@@ -110,6 +168,9 @@
     [parser parse:responseString];
 }
 
+/*
+ * Si la petición falló, sale
+ */
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -117,6 +178,9 @@
 
 #pragma mark - ParserDelegate
 
+/*
+ * El parseo obtuvo conjugaciones. Actualizar tabla
+ */
 -(void) doOnSuccess:(NSArray *)conjugations
 {
     [Helper dismissAlert];
@@ -124,9 +188,12 @@
     [[self tableView] reloadData];
 }
 
+/*
+ * No se encuentra. Mostrar alert
+ */
 -(void) doOnNotFound
 {
-    NSMutableString *message = [[NSMutableString alloc] initWithFormat:NSLocalizedString(@"O termo \'%@\' non ten forma de verbo", nil), self.verbToConjugate];
+    NSMutableString *message = [[NSMutableString alloc] initWithFormat:NSLocalizedString(@"O termo \'%@\' non ten forma de verbo", nil), self.verbFromIntegration];
     UIAlertView *info = [[UIAlertView alloc] 
                          initWithTitle:nil message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles: nil];
     [Helper dismissAlert];
@@ -153,7 +220,9 @@
     VerbalTimeCell *cell = (VerbalTimeCell *)[theTableView 
                                               dequeueReusableCellWithIdentifier:@"VerbalTimeCell"];
 
-	VerbalTime *verbalTime = [self.verbalTimes objectAtIndex:indexPath.row];
+    VerbalTime *verbalTime = [self.verbalTimes objectAtIndex:indexPath.row];
+    
+    // Nombre del tiempo verbal
     if ([verbalTime.name isEqualToString:@"PI"]) {
         cell.time.text = @"Presente de Indicativo";
     }
@@ -196,6 +265,7 @@
     [cell.time.layer setCornerRadius:10.0f];
     [cell.time.layer setMasksToBounds:YES];
     
+    // Tiempo normal
     if ([verbalTime.times count] == 6) {
         [cell.firstPersonLabel setHidden:FALSE];
         [cell.secondPersonLabel setHidden:FALSE];
@@ -222,6 +292,7 @@
         cell.secondPPersonTime.text = [verbalTime.times objectAtIndex:4];
         cell.thirdPPersonTime.text = [verbalTime.times objectAtIndex:5];
     }
+    // Imperativos
     else if ([verbalTime.times count] == 5) {
         [cell.firstPersonLabel setHidden:FALSE];
         [cell.secondPersonLabel setHidden:FALSE];
@@ -246,6 +317,7 @@
         cell.firstPPersonTime.text = [verbalTime.times objectAtIndex:3];
         cell.secondPPersonTime.text = [verbalTime.times objectAtIndex:4];
         
+        // Imperativo negativo
         if ([verbalTime.name isEqualToString:@"IN"]) {
             cell.firstPersonTime.text = [[NSString alloc] initWithFormat:@"non %@", [verbalTime.times objectAtIndex:0]];
             cell.secondPersonTime.text = [[NSString alloc] initWithFormat:@"non %@", [verbalTime.times objectAtIndex:1]];
@@ -254,6 +326,7 @@
             cell.secondPPersonTime.text = [[NSString alloc] initWithFormat:@"non %@", [verbalTime.times objectAtIndex:4]];
         }
     }
+    // Formas nominais
     else {
         [cell.firstPersonLabel setHidden:FALSE];
         [cell.secondPersonLabel setHidden:FALSE];

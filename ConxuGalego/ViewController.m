@@ -15,12 +15,10 @@
 
 @implementation ViewController
 
-@synthesize verbalTimes;
-@synthesize responseData;
 @synthesize verbTextField;
-@synthesize loadingAlert;
 @synthesize searchButton;
 @synthesize scrollView;
+@synthesize verbalTimes;
 
 - (void)didReceiveMemoryWarning
 {
@@ -28,6 +26,17 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+    
+}
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -41,6 +50,7 @@
     [self setVerbTextField:nil];
     [self setSearchButton:nil];
     [self setScrollView:nil];
+    [self setVerbalTimes:nil];
     [super viewDidUnload];
 }
 
@@ -70,13 +80,21 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
-    if (theTextField == self.verbTextField) {
-        [theTextField resignFirstResponder];
-    }
-    [self search];
-    return YES;
+/*
+ * Realiza la petición al servidor
+ */
+- (IBAction)grabURLInBackground:(id)sender
+{
+    NSURL *url = [Helper getUrl:self.verbTextField.text];
+    
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    [request setDelegate:self];
+    [request startAsynchronous];
 }
+
+/*
+ * Realiza la búsqueda. Si el campo está vacío no hace nada. Si tiene espacios en blanco muestra un alertView
+ */
 -(void)search {
     if ([self.verbTextField.text rangeOfString:@" "].location != NSNotFound) {
         UIAlertView *info = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"O termo non pode ter espazos en blanco", nil) 
@@ -90,6 +108,23 @@
     }
 }
 
+/*
+ * Para activar el ENTER del teclado virtual como botón de búsqueda
+ */
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+    if (theTextField == self.verbTextField) {
+        [theTextField resignFirstResponder];
+    }
+    [self search];
+    return YES;
+}
+
+
+
+/*
+ * Si la longitud de lo introducido es 0, desactiva el botón.
+ * También es aquí donde se comprueba la longitud máxima para permitir seguir escribiendo o no
+ */
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     NSUInteger newLength = [textField.text length] + [string length] - range.length;
     
@@ -98,6 +133,9 @@
     return (newLength > 16) ? NO : YES;
 }
 
+/*
+ * Para ir a la pantalla del conjugador
+ */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
 	if ([segue.identifier isEqualToString:@"Conjugate"])
@@ -106,23 +144,20 @@
 		ConjugateViewController *conjugateViewController = 
         segue.destinationViewController;
         conjugateViewController.verbalTimes = self.verbalTimes;
-        conjugateViewController.verb = self.verbTextField.text;
+        conjugateViewController.verbFromMainViewController = self.verbTextField.text;
 	}
 }
 
+/*
+ * Acción del botón de buscar
+ */
 - (IBAction)searchButton:(id)sender {
     [self search];
 }
 
-- (IBAction)grabURLInBackground:(id)sender
-{
-    NSURL *url = [Helper getUrl:self.verbTextField.text];
-    
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    [request setDelegate:self];
-    [request startAsynchronous];
-}
-
+/*
+ * Método delegate cuando hubo éxito (en la petición, falta parsear)
+ */
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
     // Use when fetching text data
@@ -132,6 +167,9 @@
     [parser parse:responseString];
 }
 
+/*
+ * Si la conexión falla, sale
+ */
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -139,11 +177,18 @@
 
 #pragma mark - ParserDelegate
 
+/*
+ * Se obtuvo una conjugación con éxito
+ */
 -(void) doOnSuccess:(NSArray *)conjugations
 {
     self.verbalTimes = conjugations;
     [self performSegueWithIdentifier:@"Conjugate" sender:self];
 }
+
+/*
+ * No tiene forma de verbo (esto no implica que exista o que no)
+ */
 -(void) doOnNotFound
 {
     NSMutableString *message = [[NSMutableString alloc] initWithFormat:NSLocalizedString(@"O termo \'%@\' non ten forma de verbo", nil), self.verbTextField.text];
@@ -155,18 +200,9 @@
 
 #pragma mark - end
 
-- (void)registerForKeyboardNotifications
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWasShown:)
-                                                 name:UIKeyboardDidShowNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillBeHidden:)
-                                                 name:UIKeyboardWillHideNotification object:nil];
-    
-}
-
+/*
+ * Estos métodos son para manejar el teclado virtual: ocultarlo tras buscar, hacer scroll cuando sale, etc.
+ */
 // Called when the UIKeyboardDidShowNotification is sent.
 - (void)keyboardWasShown:(NSNotification*)aNotification
 {
