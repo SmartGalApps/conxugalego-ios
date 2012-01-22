@@ -240,7 +240,7 @@
                                     <outlet property="delegate" destination="ZbI-Ml-zvu" id="LRS-gs-kNY"/>
                                 </connections>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="ELv-zu-xg9">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="ELv-zu-xg9">
                                 <rect key="frame" x="0.0" y="372" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
@@ -322,48 +322,6 @@
     <resources>
         <image name="portada.png" width="220" height="220"/>
     </resources>
-    <classes>
-        <class className="ConjugateViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ConjugateViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="define:"/>
-                <relationship kind="action" name="grabURLInBackground:"/>
-                <relationship kind="action" name="translate:"/>
-                <relationship kind="outlet" name="bottomToolbar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="defineButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="translateButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="VerbalTimeCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VerbalTimeCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="firstPPersonLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="firstPPersonTime" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="firstPersonLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="firstPersonTime" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="secondPPersonLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="secondPPersonTime" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="secondPersonLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="secondPersonTime" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="thirdPPersonLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="thirdPPersonTime" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="thirdPersonLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="thirdPersonTime" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="time" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="grabURLInBackground:"/>
-                <relationship kind="action" name="searchButton:"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="searchButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="verbTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
