@@ -85,6 +85,7 @@
  */
 - (IBAction)grabURLInBackground:(id)sender
 {
+    [Helper showAlert];
     NSURL *url = [Helper getUrl:self.verbTextField.text];
     
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
@@ -104,7 +105,6 @@
     }
     if ([self.verbTextField.text length] > 0) {
         [self grabURLInBackground:self];
-        [Helper showAlert];
     }
 }
 
@@ -147,6 +147,7 @@
  */
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
+    [Helper dismissAlert];
     // Use when fetching text data
     NSString *responseString = [request responseString];
     Parser *parser = [[Parser alloc] init];
@@ -159,6 +160,7 @@
  */
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
+    [Helper dismissAlert];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -181,7 +183,6 @@
     NSMutableString *message = [[NSMutableString alloc] initWithFormat:NSLocalizedString(@"O termo \'%@\' non ten forma de verbo", nil), self.verbTextField.text];
     UIAlertView *info = [[UIAlertView alloc] 
                          initWithTitle:nil message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles: nil];
-    [Helper dismissAlert];
     [info show];
 }
 

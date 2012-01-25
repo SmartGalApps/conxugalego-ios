@@ -42,9 +42,9 @@
     if ([theResult count] == 0)
     {
         [self.delegate doOnNotFound];
+        return;
     }
     [self.delegate doOnSuccess:theResult];
-//    return theResult;
 }
 
 @end
