@@ -38,6 +38,9 @@
 		BA85D93614B6F94D00509416 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = BA85D92D14B6F94D00509416 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BA85D93914B7018800509416 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = BA85D93814B7018800509416 /* logo.png */; };
 		BA85D93B14B7018E00509416 /* logo_retina.png in Resources */ = {isa = PBXBuildFile; fileRef = BA85D93A14B7018E00509416 /* logo_retina.png */; };
+		BA90691314D86FF30028C452 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA90691214D86FF30028C452 /* AboutViewController.m */; };
+		BA9773AF14D7141E00767563 /* dicionariogalego.png in Resources */ = {isa = PBXBuildFile; fileRef = BA9773AD14D7141E00767563 /* dicionariogalego.png */; };
+		BA9773B014D7141E00767563 /* tradutorgalego.png in Resources */ = {isa = PBXBuildFile; fileRef = BA9773AE14D7141E00767563 /* tradutorgalego.png */; };
 		BABE403714CC2ED1006F15C2 /* verbosVolga.txt in Resources */ = {isa = PBXBuildFile; fileRef = BABE403614CC2ED1006F15C2 /* verbosVolga.txt */; };
 		BAF24C7714B7050C00B4F0A3 /* logo_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = BAF24C7614B7050C00B4F0A3 /* logo_ipad.png */; };
 /* End PBXBuildFile section */
@@ -97,6 +100,10 @@
 		BA85D92D14B6F94D00509416 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		BA85D93814B7018800509416 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		BA85D93A14B7018E00509416 /* logo_retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_retina.png; sourceTree = "<group>"; };
+		BA90691114D86FF30028C452 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		BA90691214D86FF30028C452 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		BA9773AD14D7141E00767563 /* dicionariogalego.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dicionariogalego.png; sourceTree = "<group>"; };
+		BA9773AE14D7141E00767563 /* tradutorgalego.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tradutorgalego.png; sourceTree = "<group>"; };
 		BABE403614CC2ED1006F15C2 /* verbosVolga.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = verbosVolga.txt; sourceTree = "<group>"; };
 		BAF24C7614B7050C00B4F0A3 /* logo_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_ipad.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -174,6 +181,8 @@
 				BA85D90D14B6F85900509416 /* VerbalTimeCell.m */,
 				BA10B7C514CB235800DE04CC /* Helper.h */,
 				BA10B7C614CB235800DE04CC /* Helper.m */,
+				BA90691114D86FF30028C452 /* AboutViewController.h */,
+				BA90691214D86FF30028C452 /* AboutViewController.m */,
 			);
 			path = ConxuGalego;
 			sourceTree = "<group>";
@@ -192,6 +201,8 @@
 		BA85D8F814B6F6C100509416 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BA9773AD14D7141E00767563 /* dicionariogalego.png */,
+				BA9773AE14D7141E00767563 /* tradutorgalego.png */,
 				BA85D8F914B6F6C100509416 /* fondo.png */,
 				BA85D8FC14B6F6C100509416 /* portada.png */,
 			);
@@ -313,6 +324,8 @@
 				BA85D93B14B7018E00509416 /* logo_retina.png in Resources */,
 				BAF24C7714B7050C00B4F0A3 /* logo_ipad.png in Resources */,
 				BABE403714CC2ED1006F15C2 /* verbosVolga.txt in Resources */,
+				BA9773AF14D7141E00767563 /* dicionariogalego.png in Resources */,
+				BA9773B014D7141E00767563 /* tradutorgalego.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +353,7 @@
 				BA85D93514B6F94D00509416 /* ASINetworkQueue.m in Sources */,
 				BA85D93614B6F94D00509416 /* Reachability.m in Sources */,
 				BA10B7C714CB235800DE04CC /* Helper.m in Sources */,
+				BA90691314D86FF30028C452 /* AboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

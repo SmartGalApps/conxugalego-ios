@@ -112,7 +112,16 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+    {
+        // Return YES for supported orientations
+        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    }
+    else
+    {
+        // Return YES for supported orientations
+        return YES;
+    }
 }
 
 /*

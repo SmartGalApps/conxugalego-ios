@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *verbTextField;
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIImageView *logoPortada;
+@property (weak, nonatomic) IBOutlet UILabel *label;
 
 - (IBAction)searchButton:(id)sender;
 
