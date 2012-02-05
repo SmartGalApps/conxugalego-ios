@@ -50,6 +50,13 @@
     }
     else
     {
+        logoApp.frame = CGRectMake(163, 89, 250, 250);
+        appName.frame = CGRectMake(534, 185, 327, 57);
+        label.frame = CGRectMake(372, 409, 280, 21);
+        galappsLogo.frame = CGRectMake(387, 462, 250, 62);
+        slogan.frame = CGRectMake(383, 532, 258, 21);
+        mailLink.frame = CGRectMake(372, 593, 280, 21);
+        conshugaLink.frame = CGRectMake(294, 660, 460, 29);
     }
 }
 
@@ -67,6 +74,13 @@
     }
     else
     {
+        logoApp.frame = CGRectMake(83, 129, 250, 250);
+        appName.frame = CGRectMake(359, 212, 327, 57);
+        label.frame = CGRectMake(244, 475, 280, 21);
+        galappsLogo.frame = CGRectMake(259, 575, 250, 62);
+        slogan.frame = CGRectMake(255, 644, 258, 21);
+        mailLink.frame = CGRectMake(244, 678, 280, 21);
+        conshugaLink.frame = CGRectMake(166, 911, 436, 29);
     }
 }
 

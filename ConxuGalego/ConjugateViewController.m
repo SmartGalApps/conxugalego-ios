@@ -358,13 +358,28 @@
         cell.firstPPersonTime.text = [verbalTime.times objectAtIndex:3];
         cell.secondPPersonTime.text = [verbalTime.times objectAtIndex:4];
         cell.thirdPPersonTime.text = [verbalTime.times objectAtIndex:5];
+        
         if (UIDeviceOrientationIsLandscape(self.interfaceOrientation))
         {
-            cell.theView.frame = CGRectMake(100, 40, 280, 219);
+            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+            {
+                cell.theView.frame = CGRectMake(100, 40, 280, 219);
+            }
+            else
+            {
+                cell.theView.frame = CGRectMake(380, 46, 280, 213);
+            }
         }
         else
         {
-            cell.theView.frame = CGRectMake(20, 40, 280, 219);
+            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+            {
+                cell.theView.frame = CGRectMake(20, 40, 280, 219);
+            }
+            else
+            {
+                cell.theView.frame = CGRectMake(244, 46, 280, 213);
+            }
         }
     }
     // Imperativos
@@ -402,11 +417,25 @@
         }
         if (UIDeviceOrientationIsLandscape(self.interfaceOrientation))
         {
-            cell.theView.frame = CGRectMake(100, 40, 280, 195);
+            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+            {
+                cell.theView.frame = CGRectMake(100, 40, 280, 195);
+            }
+            else
+            {
+                cell.theView.frame = CGRectMake(380, 46, 280, 195);
+            }
         }
         else
         {
-            cell.theView.frame = CGRectMake(20, 40, 280, 195);
+            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+            {
+                cell.theView.frame = CGRectMake(20, 40, 280, 195);
+            }
+            else
+            {
+                cell.theView.frame = CGRectMake(244, 46, 280, 195);
+            }
         }
     }
     // Formas nominais
@@ -432,11 +461,25 @@
         cell.thirdPersonTime.text = [verbalTime.times objectAtIndex:2];
         if (UIDeviceOrientationIsLandscape(self.interfaceOrientation))
         {
-            cell.theView.frame = CGRectMake(100, 40, 280, 150);
+            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+            {
+                cell.theView.frame = CGRectMake(100, 40, 280, 150);
+            }
+            else
+            {
+                cell.theView.frame = CGRectMake(380, 46, 280, 150);
+            }
         }
         else
         {
-            cell.theView.frame = CGRectMake(20, 40, 280, 150);
+            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+            {
+                cell.theView.frame = CGRectMake(20, 40, 280, 150);
+            }
+            else
+            {
+                cell.theView.frame = CGRectMake(244, 46, 280, 150);
+            }
         }
     }
     

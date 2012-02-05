@@ -77,10 +77,10 @@
     }
     else
     {
-        logoPortada.frame = CGRectMake(185, 330, 300, 300);
-        label.frame = CGRectMake(536, 444, 300, 21);
-        verbTextField.frame = CGRectMake(536, 481, 220, 31);
-        searchButton.frame = CGRectMake(771, 478, 75, 37);
+        logoPortada.frame = CGRectMake(185, 430, 300, 300);
+        label.frame = CGRectMake(536, 544, 300, 21);
+        verbTextField.frame = CGRectMake(536, 581, 220, 31);
+        searchButton.frame = CGRectMake(771, 578, 37, 37);
     }
 }
 
@@ -95,10 +95,10 @@
     }
     else
     {
-        logoPortada.frame = CGRectMake(234, 20, 300, 300);
-        label.frame = CGRectMake(224, 405, 300, 21);
-        verbTextField.frame = CGRectMake(224, 442, 220, 31);
-        searchButton.frame = CGRectMake(459, 439, 75, 37);
+        logoPortada.frame = CGRectMake(234, 147, 300, 300);
+        label.frame = CGRectMake(224, 532, 300, 21);
+        verbTextField.frame = CGRectMake(224, 569, 265, 31);
+        searchButton.frame = CGRectMake(497, 566, 37, 37);
     }
 }
 
