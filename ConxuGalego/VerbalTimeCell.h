@@ -26,4 +26,5 @@
 @property (nonatomic, strong) IBOutlet UILabel *secondPPersonTime;
 @property (nonatomic, strong) IBOutlet UILabel *thirdPPersonTime;
 
+@property (nonatomic, strong) IBOutlet UIView *theView;
 @end

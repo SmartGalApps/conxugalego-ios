@@ -25,5 +25,6 @@
 @synthesize firstPPersonTime;
 @synthesize secondPPersonTime;
 @synthesize thirdPPersonTime;
+@synthesize theView;
 @end
 

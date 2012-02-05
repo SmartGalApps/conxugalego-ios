@@ -80,5 +80,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>CantarellBold.ttf</string>
+		<string>CantarellRegular.ttf</string>
+	</array>
 </dict>
 </plist>

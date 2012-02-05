@@ -12,6 +12,7 @@
 #import "Parser.h"
 #import "VerbalTime.h"
 #import "Helper.h"
+#import "Reachability.h"
 
 @implementation ViewController
 
@@ -39,6 +40,13 @@
                                                  name:UIKeyboardWillHideNotification object:nil];
     
 }
+
+-(BOOL) isConnected
+{
+    Reachability *internetReachable = [Reachability reachabilityForInternetConnection];
+    return [internetReachable isReachable];
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -62,10 +70,10 @@
 {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     {
-        logoPortada.frame = CGRectMake(165, 54, 150, 150);
-        label.frame = CGRectMake(20, 206, 234, 21);
-        verbTextField.frame = CGRectMake(20, 228, 320, 31);
-        searchButton.frame = CGRectMake(348, 225, 112, 37);
+        logoPortada.frame = CGRectMake(20, 76, 150, 150);
+        label.frame = CGRectMake(178, 123, 280, 21);
+        verbTextField.frame = CGRectMake(178, 146, 243, 31);
+        searchButton.frame = CGRectMake(429, 143, 37, 37);
     }
     else
     {
@@ -81,9 +89,9 @@
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     {
         logoPortada.frame = CGRectMake(85, 67, 150, 150);
-        label.frame = CGRectMake(20, 221, 280, 21);
-        verbTextField.frame = CGRectMake(20, 244, 206, 31);
-        searchButton.frame = CGRectMake(234, 241, 75, 37);
+        label.frame = CGRectMake(20, 229, 280, 21);
+        verbTextField.frame = CGRectMake(20, 252, 243, 31);
+        searchButton.frame = CGRectMake(271, 249, 37, 37);
     }
     else
     {
@@ -160,7 +168,16 @@
         return;
     }
     if ([self.verbTextField.text length] > 0) {
+        if ([self isConnected])
+        {
         [self grabURLInBackground:self];
+        }
+        else
+        {
+            UIAlertView *info = [[UIAlertView alloc] 
+                                 initWithTitle:nil message:NSLocalizedString(@"Necesitas conexión a internet.", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles: nil];
+            [info show];
+        }
     }
 }
 
@@ -295,20 +312,15 @@
 }
 
 -(void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    if (fromInterfaceOrientation == UIInterfaceOrientationLandscapeLeft ||
-        fromInterfaceOrientation == UIInterfaceOrientationLandscapeRight)
-    {
-        [self setPortrait];
-    }
-    else
+    if ([self.navigationController interfaceOrientation] == UIInterfaceOrientationLandscapeLeft
+        || [self.navigationController interfaceOrientation] == UIInterfaceOrientationLandscapeRight)
     {
         [self setLandscape];
     }
-}
-
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    
+    else
+    {
+        [self setPortrait];
+    }
 }
 
 @end

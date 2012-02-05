@@ -13,6 +13,7 @@
 #import "VerbalTimeCell.h"
 #import <QuartzCore/QuartzCore.h>
 #import "Helper.h"
+#import "Reachability.h"
 
 @implementation ConjugateViewController
 
@@ -24,7 +25,9 @@
 @synthesize defineButton;
 @synthesize translateButton;
 @synthesize bottomToolbar;
-@synthesize doesNotExistLabel;
+@synthesize doesNotExistButton;
+@synthesize space1;
+@synthesize space2;
 
 - (void)viewDidUnload
 {
@@ -35,12 +38,42 @@
     [self setDefineButton:nil];
     [self setTranslateButton:nil];
     [self setBottomToolbar:nil];
-    [self setDoesNotExistLabel:nil];
+    [self setDoesNotExistButton:nil];
+    [self setSpace1:nil];
+    [self setSpace2:nil];
     [super viewDidUnload];
 }
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+-(void) setLandscape
+{
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+    {
+        space1.width = 180;
+        space2.width = 150;
+    }
+    else
+    {
+        space1.width = 300;
+        space2.width = 300;
+    }
+}
+
+-(void) setPortrait
+{
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+    {
+        space1.width = 105;
+        space2.width = 65;
+    }
+    else
+    {
+        space1.width = 300;
+        space2.width = 300;
+    }
 }
 
 /*
@@ -54,6 +87,12 @@
     [request setDelegate:self];
     [Helper showAlert];
     [request startAsynchronous];
+}
+
+-(BOOL) isConnected
+{
+    Reachability *internetReachable = [Reachability reachabilityForInternetConnection];
+    return [internetReachable isReachable];
 }
 
 #pragma mark - View lifecycle
@@ -70,9 +109,18 @@
     
     // Si viene de la integración, hay que llamar al servidor y ocultar la toolbar de abajo
     if (self.verbFromIntegration != nil) {
-        verbToCheck = self.verbFromIntegration;
-        [self grabURLInBackground:self];
-        [self.bottomToolbar setHidden:TRUE];
+        if ([self isConnected])
+        {
+            verbToCheck = self.verbFromIntegration;
+            [self grabURLInBackground:self];
+            [self.bottomToolbar setHidden:TRUE];
+        }
+        else
+        {
+            UIAlertView *info = [[UIAlertView alloc] 
+                                 initWithTitle:nil message:NSLocalizedString(@"Necesitas conexión a internet.", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles: nil];
+            [info show];
+        }
     }
     else
     {
@@ -82,17 +130,25 @@
     // Comprueba si existe en el Volga, y muestra la etiqueta si no
     if ([Helper existsVerb:verbToCheck])
     {
-        [self.doesNotExistLabel setHidden:TRUE];
+        [self.bottomToolbar setItems:[[NSArray alloc] initWithObjects:self.space1, self.defineButton,self.translateButton, self.space2, nil] animated:TRUE];
     }
     else
     {
-        [self.doesNotExistLabel setHidden:FALSE];
+        [self.bottomToolbar setItems:[[NSArray alloc] initWithObjects:self.space1, self.defineButton,self.translateButton,self.space2, self.doesNotExistButton, nil] animated:TRUE];
     }
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    if (UIDeviceOrientationIsLandscape(self.interfaceOrientation))
+    {
+        [self setLandscape];
+    }
+    else
+    {
+        [self setPortrait];        
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -160,6 +216,12 @@
     }
 }
 
+- (IBAction)showDoesNotExist:(id)sender {
+    UIAlertView *info = [[UIAlertView alloc] 
+                         initWithTitle:nil message:@"O verbo non existe, pero de existir, conxugaríase así" delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles: nil];
+    [info show];
+}
+
 /*
  * Si la petición tuvo éxito, parsear (viene de integración)
  */
@@ -224,8 +286,9 @@
     VerbalTimeCell *cell = (VerbalTimeCell *)[theTableView 
                                               dequeueReusableCellWithIdentifier:@"VerbalTimeCell"];
 
-    VerbalTime *verbalTime = [self.verbalTimes objectAtIndex:indexPath.row];
     
+    VerbalTime *verbalTime = [self.verbalTimes objectAtIndex:indexPath.row];
+
     // Nombre del tiempo verbal
     if ([verbalTime.name isEqualToString:@"PI"]) {
         cell.time.text = @"Presente de Indicativo";
@@ -295,6 +358,14 @@
         cell.firstPPersonTime.text = [verbalTime.times objectAtIndex:3];
         cell.secondPPersonTime.text = [verbalTime.times objectAtIndex:4];
         cell.thirdPPersonTime.text = [verbalTime.times objectAtIndex:5];
+        if (UIDeviceOrientationIsLandscape(self.interfaceOrientation))
+        {
+            cell.theView.frame = CGRectMake(100, 40, 280, 219);
+        }
+        else
+        {
+            cell.theView.frame = CGRectMake(20, 40, 280, 219);
+        }
     }
     // Imperativos
     else if ([verbalTime.times count] == 5) {
@@ -329,6 +400,14 @@
             cell.firstPPersonTime.text = [[NSString alloc] initWithFormat:@"non %@", [verbalTime.times objectAtIndex:3]];
             cell.secondPPersonTime.text = [[NSString alloc] initWithFormat:@"non %@", [verbalTime.times objectAtIndex:4]];
         }
+        if (UIDeviceOrientationIsLandscape(self.interfaceOrientation))
+        {
+            cell.theView.frame = CGRectMake(100, 40, 280, 195);
+        }
+        else
+        {
+            cell.theView.frame = CGRectMake(20, 40, 280, 195);
+        }
     }
     // Formas nominais
     else {
@@ -351,6 +430,14 @@
         cell.firstPersonTime.text = [verbalTime.times objectAtIndex:0];
         cell.secondPersonTime.text = [verbalTime.times objectAtIndex:1];
         cell.thirdPersonTime.text = [verbalTime.times objectAtIndex:2];
+        if (UIDeviceOrientationIsLandscape(self.interfaceOrientation))
+        {
+            cell.theView.frame = CGRectMake(100, 40, 280, 150);
+        }
+        else
+        {
+            cell.theView.frame = CGRectMake(20, 40, 280, 150);
+        }
     }
     
     return cell;
@@ -367,6 +454,20 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+
+
+
+-(void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    if (UIDeviceOrientationIsLandscape(self.interfaceOrientation))
+    {
+        [self setLandscape];
+    }
+    else
+    {
+        [self setPortrait];
+    }
+    [self.tableView reloadData];
 }
 
 @end

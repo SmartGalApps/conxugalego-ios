@@ -23,10 +23,13 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *defineButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *translateButton;
 @property (weak, nonatomic) IBOutlet UIToolbar *bottomToolbar;
-@property (weak, nonatomic) IBOutlet UILabel *doesNotExistLabel;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doesNotExistButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *space1;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *space2;
 
 - (IBAction)grabURLInBackground:(id)sender;
 - (IBAction)define:(id)sender;
 - (IBAction)translate:(id)sender;
+- (IBAction)showDoesNotExist:(id)sender;
 
 @end
