@@ -29,7 +29,7 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>es.galapps.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>es.galapps.ios.conxugalego</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

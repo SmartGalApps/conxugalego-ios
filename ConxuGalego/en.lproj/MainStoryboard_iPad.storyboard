@@ -91,7 +91,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="274" sectionHeaderHeight="22" sectionFooterHeight="22" id="yk4-7y-4hQ">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="923"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -229,7 +229,7 @@
                                 </connections>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="QNO-f7-xK2">
-                                <rect key="frame" x="0.0" y="923" width="768" height="44"/>
+                                <rect key="frame" x="0.0" y="916" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="QSn-hD-fCa"/>
@@ -257,6 +257,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="5qX-Yy-RVw"/>
                     <connections>
+                        <outlet property="bottomToolbar" destination="QNO-f7-xK2" id="2Ff-6L-HRs"/>
                         <outlet property="defineButton" destination="Zxr-bs-lgA" id="6UJ-8l-7bm"/>
                         <outlet property="doesNotExistButton" destination="XFx-T4-m6q" id="o9Y-5g-Csi"/>
                         <outlet property="space1" destination="QSn-hD-fCa" id="yac-0G-gDR"/>
@@ -298,7 +299,7 @@
                                 <color key="textColor" white="0.89934990879999999" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Aplicación desenvolvida por:" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="WfW-sB-iYC">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Aplicación desenvolvida por" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="WfW-sB-iYC">
                                 <rect key="frame" x="244" y="475" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>

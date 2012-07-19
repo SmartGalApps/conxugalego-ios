@@ -16,7 +16,8 @@ static UIAlertView * loadingAlert;
 {
     NSMutableString *urlString = [NSMutableString string];
     [urlString appendString:@"http://sonxurxo.com/conxuga/conshuga.pl?"];
-    [urlString appendString:term];
+    [urlString appendString:[term lowercaseString]];
+//    NSString * finalURLString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     return [NSURL URLWithString:urlString];
 }
 
@@ -52,7 +53,7 @@ static UIAlertView * loadingAlert;
      [NSCharacterSet newlineCharacterSet]];
     for (NSString* line in lines)
     {
-        if ([line isEqualToString:verb])
+        if ([line caseInsensitiveCompare:verb] == NSOrderedSame)
         {
             return TRUE;
         }

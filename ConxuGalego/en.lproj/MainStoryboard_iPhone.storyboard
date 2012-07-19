@@ -109,7 +109,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="266" sectionHeaderHeight="22" sectionFooterHeight="22" id="eAY-33-Ehq">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="372"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -303,7 +303,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Aplicación desenvolvida por:" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="cR5-Hh-l1t">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Aplicación desenvolvida por" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="cR5-Hh-l1t">
                                 <rect key="frame" x="20" y="137" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -364,66 +364,6 @@
         <image name="lupa.png" width="32" height="38"/>
         <image name="portada.png" width="220" height="220"/>
     </resources>
-    <classes>
-        <class className="AboutViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="appName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="conshugaLink" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="galappsLogo" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="logoApp" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="mailLink" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slogan" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ConjugateViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ConjugateViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="define:"/>
-                <relationship kind="action" name="grabURLInBackground:"/>
-                <relationship kind="action" name="showDoesNotExist:"/>
-                <relationship kind="action" name="translate:"/>
-                <relationship kind="outlet" name="bottomToolbar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="defineButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="doesNotExistButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="space1" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="space2" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="translateButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="VerbalTimeCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VerbalTimeCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="firstPPersonLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="firstPPersonTime" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="firstPersonLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="firstPersonTime" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="secondPPersonLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="secondPPersonTime" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="secondPersonLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="secondPersonTime" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="theView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="thirdPPersonLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="thirdPPersonTime" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="thirdPersonLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="thirdPersonTime" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="time" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="searchButton:"/>
-                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="logoPortada" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="searchButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="verbTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "ConjugateViewController.h"
-#import "ASIHTTPRequest.h"
+#import "ASIHttpRequest.h"
 #import "Parser.h"
 #import "VerbalTime.h"
 #import "Helper.h"
@@ -153,6 +153,10 @@
     NSURL *url = [Helper getUrl:self.verbTextField.text];
     
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+//    [request setStringEncoding:NSUnicodeStringEncoding];
+    [request setDefaultResponseEncoding:NSUTF8StringEncoding];
+    [request setResponseEncoding:NSUTF8StringEncoding];
+    [request addRequestHeader:@"Content-Type" value:@"application/xml; charset=UTF-8;"];
     [request setDelegate:self];
     [request startAsynchronous];
 }
