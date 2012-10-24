@@ -167,11 +167,11 @@
 {
     [Helper showAlert];
     NSURL *url = [Helper getUrl:self.verbTextField.text];
-    
+    NSLog(@"%@", url);
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
 //    [request setStringEncoding:NSUnicodeStringEncoding];
-    [request setDefaultResponseEncoding:NSUTF8StringEncoding];
-    [request setResponseEncoding:NSUTF8StringEncoding];
+//    [request setDefaultResponseEncoding:NSUTF8StringEncoding];
+//    [request setResponseEncoding:NSUTF8StringEncoding];
     [request addRequestHeader:@"Content-Type" value:@"application/xml; charset=UTF-8;"];
     [request setDelegate:self];
     [request startAsynchronous];
@@ -245,6 +245,7 @@
     NSString *responseString = [request responseString];
     Parser *parser = [[Parser alloc] init];
     parser.delegate = self;
+    NSLog(@"%@", responseString);
     [parser parse:responseString];
 }
 
