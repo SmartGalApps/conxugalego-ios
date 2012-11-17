@@ -15,7 +15,7 @@ static UIAlertView * loadingAlert;
 +(NSURL *) getUrl:(NSString *)term
 {
     NSMutableString *urlString = [NSMutableString string];
-    [urlString appendString:@"http://sonxurxo.com/Conxugalego2/conshuga.pl?"];
+    [urlString appendString:@"http://galapps.es/Conxugalego2/conshuga.pl?"];
     //    [urlString appendString:@"http://193.144.50.66/conxuga/conshuga.pl?"];
     //    term = [term stringByReplacingOccurrencesOfString:@"ñ" withString:@"\\xf1"];
     NSString * theTerm = [[term lowercaseString] stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];

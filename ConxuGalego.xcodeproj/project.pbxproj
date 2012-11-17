@@ -14,7 +14,6 @@
 		BA80147B14DE9C4300F5E229 /* CantarellBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA80147814DE9C4300F5E229 /* CantarellBold.ttf */; };
 		BA80147C14DE9C4300F5E229 /* CantarellBoldOblique.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA80147914DE9C4300F5E229 /* CantarellBoldOblique.ttf */; };
 		BA80147D14DE9C4300F5E229 /* CantarellRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA80147A14DE9C4300F5E229 /* CantarellRegular.ttf */; };
-		BA80147E14DE9EA300F5E229 /* ConxuGalego-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA85D85F14B6F66E00509416 /* ConxuGalego-Info.plist */; };
 		BA80148414DEAC6C00F5E229 /* GalApps_iOS_logosimbolo.png in Resources */ = {isa = PBXBuildFile; fileRef = BA80148314DEAC6C00F5E229 /* GalApps_iOS_logosimbolo.png */; };
 		BA85D85814B6F66E00509416 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA85D85714B6F66E00509416 /* UIKit.framework */; };
 		BA85D85A14B6F66E00509416 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA85D85914B6F66E00509416 /* Foundation.framework */; };
@@ -47,6 +46,7 @@
 		BA85D93914B7018800509416 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = BA85D93814B7018800509416 /* logo.png */; };
 		BA85D93B14B7018E00509416 /* logo_retina.png in Resources */ = {isa = PBXBuildFile; fileRef = BA85D93A14B7018E00509416 /* logo_retina.png */; };
 		BA90691314D86FF30028C452 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA90691214D86FF30028C452 /* AboutViewController.m */; };
+		BA98CE3E16578A1800F40FB1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA98CE3D16578A1800F40FB1 /* Default-568h@2x.png */; };
 		BABE403714CC2ED1006F15C2 /* verbosVolga.txt in Resources */ = {isa = PBXBuildFile; fileRef = BABE403614CC2ED1006F15C2 /* verbosVolga.txt */; };
 		BAF24C7714B7050C00B4F0A3 /* logo_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = BAF24C7614B7050C00B4F0A3 /* logo_ipad.png */; };
 /* End PBXBuildFile section */
@@ -115,6 +115,7 @@
 		BA85D93A14B7018E00509416 /* logo_retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_retina.png; sourceTree = "<group>"; };
 		BA90691114D86FF30028C452 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		BA90691214D86FF30028C452 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		BA98CE3D16578A1800F40FB1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BABE403614CC2ED1006F15C2 /* verbosVolga.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = verbosVolga.txt; sourceTree = "<group>"; };
 		BAF24C7614B7050C00B4F0A3 /* logo_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_ipad.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +151,7 @@
 		BA85D84814B6F66E00509416 = {
 			isa = PBXGroup;
 			children = (
+				BA98CE3D16578A1800F40FB1 /* Default-568h@2x.png */,
 				BABE403414CC2EBA006F15C2 /* Files */,
 				BAF24C7614B7050C00B4F0A3 /* logo_ipad.png */,
 				BA85D93A14B7018E00509416 /* logo_retina.png */,
@@ -352,10 +354,10 @@
 				BA80147B14DE9C4300F5E229 /* CantarellBold.ttf in Resources */,
 				BA80147C14DE9C4300F5E229 /* CantarellBoldOblique.ttf in Resources */,
 				BA80147D14DE9C4300F5E229 /* CantarellRegular.ttf in Resources */,
-				BA80147E14DE9EA300F5E229 /* ConxuGalego-Info.plist in Resources */,
 				BA80148414DEAC6C00F5E229 /* GalApps_iOS_logosimbolo.png in Resources */,
 				BA08549D14DEC308001D857E /* btn_DicionarioGalego.png in Resources */,
 				BA0854A114DED702001D857E /* btn_TradutorGalego.png in Resources */,
+				BA98CE3E16578A1800F40FB1 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

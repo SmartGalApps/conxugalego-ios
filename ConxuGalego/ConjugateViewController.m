@@ -200,7 +200,8 @@
  * Botón de integración
  */
 - (IBAction)define:(id)sender {
-    NSString *urlString = [[NSString alloc] initWithFormat:@"define://%@", self.verbFromMainViewController];
+    NSString* encodedText = [verbFromMainViewController stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *urlString = [[NSString alloc] initWithFormat:@"define://%@", encodedText];
     NSURL *myURL = [NSURL URLWithString:urlString];
     if ([[UIApplication sharedApplication] canOpenURL:myURL])
     {
@@ -218,7 +219,8 @@
  * Botón de integración
  */
 - (IBAction)translate:(id)sender {
-    NSString *urlString = [[NSString alloc] initWithFormat:@"traduce://%@", self.verbFromMainViewController];
+    NSString* encodedText = [verbFromMainViewController stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *urlString = [[NSString alloc] initWithFormat:@"traduce://%@", encodedText];
     NSURL *myURL = [NSURL URLWithString:urlString];
     if ([[UIApplication sharedApplication] canOpenURL:myURL])
     {

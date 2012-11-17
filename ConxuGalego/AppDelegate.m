@@ -44,7 +44,7 @@
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     // O termo a buscar
-    NSString *term = [[url absoluteString] substringFromIndex:10];
+    NSString *term = [[[url absoluteString] substringFromIndex:10] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     // Primeira vez que se arranca a integración
     if (self.conjugateViewController == nil)
